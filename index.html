@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Habits" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <title>Habit Tracker</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,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" />
+  <link rel="apple-touch-icon" href="data:image/png;base64,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" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a1a2e;
+      --blue: #3b82f6;
+      --green: #22c55e;
+      --bg: #f0f4f8;
+      --card: #ffffff;
+      --text: #1a1a2e;
+      --muted: #8a99b0;
+      --light: #f8fafc;
+      --border: #e2e8f0;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      font-family: -apple-system, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      color: var(--text);
+      overscroll-behavior: none;
+    }
+
+    #app {
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--navy);
+      padding: calc(16px + var(--safe-top)) 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    }
+
+    .month-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+    }
+
+    .nav-btn {
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: white;
+      border-radius: 10px;
+      width: 38px; height: 38px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 0.15s;
+    }
+    .nav-btn:active { background: rgba(255,255,255,0.25); }
+
+    .month-title { text-align: center; }
+    .month-title h1 {
+      color: white;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .month-title span {
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 3px;
+      margin-bottom: 14px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 8px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      -webkit-tap-highlight-color: transparent;
+      text-transform: capitalize;
+      background: transparent;
+      color: rgba(255,255,255,0.6);
+    }
+    .tab-btn.active {
+      background: white;
+      color: var(--navy);
+    }
+
+    /* ── BODY ── */
+    .body {
+      flex: 1;
+      padding: 16px 16px calc(80px + var(--safe-bottom));
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* ── CALENDAR ── */
+    .dow-row {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+    .dow-cell {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      padding: 4px 0;
+    }
+
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+    .cal-day {
+      text-align: center;
+      border-radius: 10px;
+      padding: 6px 2px;
+      background: var(--card);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      min-height: 38px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.1s;
+    }
+    .cal-day:active { transform: scale(0.93); }
+    .cal-day.empty { background: transparent; box-shadow: none; cursor: default; }
+    .cal-day.today { background: var(--navy); box-shadow: 0 0 0 2px var(--blue); }
+    .cal-day.partial { background: var(--blue); }
+    .cal-day.done { background: var(--green); }
+
+    .cal-day .day-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .cal-day.today .day-num,
+    .cal-day.partial .day-num,
+    .cal-day.done .day-num { color: white; }
+
+    .cal-day .day-pct {
+      font-size: 9px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 600;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0 12px;
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .add-btn {
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 7px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: opacity 0.15s;
+    }
+    .add-btn:active { opacity: 0.8; }
+
+    /* ── HABIT CARD ── */
+    .habit-card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    }
+
+    .habit-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .habit-emoji { font-size: 24px; flex-shrink: 0; }
+    .habit-info { flex: 1; min-width: 0; }
+    .habit-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .habit-sub { font-size: 12px; color: var(--muted); margin-top: 1px; }
+
+    .today-btn {
+      width: 38px; height: 38px;
+      border: none; border-radius: 11px;
+      font-size: 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .today-btn.unchecked { background: var(--light); color: var(--muted); }
+    .today-btn.checked { background: var(--green); color: white; font-weight: 700; }
+
+    .del-btn {
+      width: 28px; height: 28px;
+      border: none; background: transparent;
+      color: var(--border); cursor: pointer;
+      font-size: 16px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+      flex-shrink: 0;
+    }
+    .del-btn:active { color: #ef4444; }
+
+    /* Progress bar */
+    .prog-bar {
+      height: 6px;
+      background: var(--light);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .prog-fill {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 0.4s ease;
+    }
+    .prog-fill.blue { background: var(--blue); }
+    .prog-fill.green { background: var(--green); }
+
+    /* Day pills row */
+    .day-pills {
+      display: flex;
+      gap: 4px;
+      margin-top: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .day-pills::-webkit-scrollbar { display: none; }
+
+    .day-pill {
+      min-width: 30px; height: 30px;
+      border: none; border-radius: 8px;
+      font-size: 11px; font-weight: 700;
+      cursor: pointer; flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .day-pill.unchecked { background: var(--light); color: #94a3b8; }
+    .day-pill.today-pill { background: #e0f2fe; color: var(--blue); outline: 2px solid var(--blue); }
+    .day-pill.checked { background: var(--blue); color: white; }
+
+    /* ── EMPTY STATE ── */
+    .empty {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .empty-icon { font-size: 40px; margin-bottom: 12px; }
+
+    /* ── STATS ── */
+    .stats-hero {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+    .stats-label { font-size: 11px; color: var(--muted); font-weight: 700; letter-spacing: 1.5px; margin-bottom: 6px; }
+    .stats-pct {
+      font-size: 60px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .stats-sub { font-size: 13px; color: var(--muted); margin: 6px 0 14px; }
+
+    .stat-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .stat-card-top {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+    }
+    .stat-pct-big {
+      font-weight: 800; font-size: 22px;
+    }
+    .stat-pct-big.blue { color: var(--blue); }
+    .stat-pct-big.green { color: var(--green); }
+
+    .heatmap {
+      display: flex; flex-wrap: wrap; gap: 3px; margin-top: 10px;
+    }
+    .heat-cell {
+      width: 10px; height: 10px; border-radius: 3px;
+    }
+    .heat-cell.off { background: var(--light); }
+    .heat-cell.on { background: var(--blue); }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: flex; align-items: flex-end;
+      z-index: 100;
+      animation: fadeIn 0.2s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .modal-sheet {
+      background: white;
+      width: 100%; max-width: 480px;
+      margin: 0 auto;
+      border-radius: 24px 24px 0 0;
+      padding: 24px 20px calc(24px + var(--safe-bottom));
+      animation: slideUp 0.25s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(60px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    .modal-title { font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 20px; }
+    .modal-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 1px; margin-bottom: 8px; }
+
+    .modal-input {
+      width: 100%; padding: 13px 14px;
+      border-radius: 12px; border: 2px solid var(--border);
+      font-size: 15px; font-weight: 500;
+      outline: none; margin-bottom: 18px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    .modal-input:focus { border-color: var(--blue); }
+
+    .emoji-grid {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;
+    }
+    .emoji-opt {
+      font-size: 22px;
+      background: var(--light);
+      border: 2px solid transparent;
+      border-radius: 10px;
+      width: 46px; height: 46px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+    .emoji-opt.selected { background: #eff6ff; border-color: var(--blue); }
+
+    .modal-submit {
+      width: 100%; padding: 15px;
+      background: var(--blue); color: white;
+      border: none; border-radius: 14px;
+      font-size: 16px; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+      transition: opacity 0.15s;
+    }
+    .modal-submit:active { opacity: 0.85; }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: calc(80px + var(--safe-bottom) + 10px);
+      left: 50%; transform: translateX(-50%);
+      background: var(--navy);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      z-index: 200;
+      animation: toastIn 0.25s ease, toastOut 0.25s ease 1.5s forwards;
+      pointer-events: none;
+    }
+    @keyframes toastIn { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+    @keyframes toastOut { to { opacity: 0; transform: translateX(-50%) translateY(10px); } }
+
+    /* ── INSTALL BANNER ── */
+    .install-banner {
+      background: linear-gradient(135deg, #1e3a5f, #1a1a2e);
+      color: white;
+      padding: 14px 16px;
+      display: flex; align-items: center; gap: 12px;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 16px rgba(26,26,46,0.3);
+    }
+    .install-icon { font-size: 28px; flex-shrink: 0; }
+    .install-text { flex: 1; }
+    .install-text strong { font-size: 14px; display: block; margin-bottom: 2px; }
+    .install-text span { font-size: 12px; opacity: 0.7; }
+    .install-close {
+      background: rgba(255,255,255,0.15); border: none; color: white;
+      width: 28px; height: 28px; border-radius: 8px; cursor: pointer;
+      font-size: 14px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const DAYS = ["Su","Mo","Tu","We","Th","Fr","Sa"];
+const EMOJIS = ["⏰","🏋️","🧘","📚","💧","🥗","😴","🏃","🎯","💊","✍️","🎵","🧹","🚴","🌿","🧃","🛌","🧠"];
+
+// ── STATE ──
+let state = {
+  month: new Date().getMonth(),
+  year: new Date().getFullYear(),
+  tab: "tracker",
+  habits: [
+    { id: 1, name: "Wake up at 5:00 AM", emoji: "⏰" },
+    { id: 2, name: "Workout", emoji: "🏋️" },
+    { id: 3, name: "Meditation / Breathing", emoji: "🧘" },
+  ],
+  checked: {},
+  showModal: false,
+  newName: "",
+  newEmoji: "✅",
+  showInstall: true,
+  toastMsg: null,
+};
+
+// Load from localStorage
+try {
+  const saved = localStorage.getItem("ht_state");
+  if (saved) {
+    const parsed = JSON.parse(saved);
+    state.habits = parsed.habits || state.habits;
+    state.checked = parsed.checked || {};
+  }
+} catch(e) {}
+
+function save() {
+  try {
+    localStorage.setItem("ht_state", JSON.stringify({ habits: state.habits, checked: state.checked }));
+  } catch(e) {}
+}
+
+function setState(updates) {
+  Object.assign(state, updates);
+  render();
+}
+
+// ── HELPERS ──
+function daysInMonth(y, m) { return new Date(y, m + 1, 0).getDate(); }
+function firstDay(y, m) { return new Date(y, m, 1).getDay(); }
+
+function checkKey(habitId, day) {
+  return `${habitId}-${state.year}-${state.month}-${day}`;
+}
+function isChecked(habitId, day) { return !!state.checked[checkKey(habitId, day)]; }
+
+function toggle(habitId, day) {
+  const key = checkKey(habitId, day);
+  state.checked[key] = !state.checked[key];
+  save();
+  render();
+}
+
+function getDayProgress(day) {
+  if (!state.habits.length) return 0;
+  const done = state.habits.filter(h => isChecked(h.id, day)).length;
+  return Math.round((done / state.habits.length) * 100);
+}
+
+function getHabitProgress(habitId) {
+  const total = daysInMonth(state.year, state.month);
+  const done = Array.from({length: total}, (_, i) => i+1).filter(d => isChecked(habitId, d)).length;
+  return { done, total, pct: Math.round((done / total) * 100) };
+}
+
+function showToast(msg) {
+  state.toastMsg = msg;
+  render();
+  setTimeout(() => { state.toastMsg = null; render(); }, 1800);
+}
+
+// ── RENDER ──
+function render() {
+  const app = document.getElementById("app");
+  const today = new Date();
+  const todayD = today.getDate(), todayM = today.getMonth(), todayY = today.getFullYear();
+  const dim = daysInMonth(state.year, state.month);
+  const fd = firstDay(state.year, state.month);
+
+  // Build calendar weeks
+  let weeks = [];
+  let week = new Array(fd).fill(null);
+  for (let d = 1; d <= dim; d++) {
+    week.push(d);
+    if (week.length === 7) { weeks.push(week); week = []; }
+  }
+  if (week.length > 0) { while (week.length < 7) week.push(null); weeks.push(week); }
+
+  // Overall stats
+  const totalChecked = Object.keys(state.checked).filter(k => k.includes(`-${state.year}-${state.month}-`) && state.checked[k]).length;
+  const totalPossible = state.habits.length * dim;
+  const overallPct = totalPossible === 0 ? 0 : Math.round((totalChecked / totalPossible) * 100);
+
+  const isThisMonth = state.month === todayM && state.year === todayY;
+
+  app.innerHTML = `
+    <!-- HEADER -->
+    <div class="header">
+      <div class="month-nav">
+        <button class="nav-btn" onclick="prevMonth()">‹</button>
+        <div class="month-title">
+          <h1>${MONTHS[state.month]}</h1>
+          <span>${state.year}</span>
+        </div>
+        <button class="nav-btn" onclick="nextMonth()">›</button>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn ${state.tab==='tracker'?'active':''}" onclick="setTab('tracker')">📋 Tracker</button>
+        <button class="tab-btn ${state.tab==='stats'?'active':''}" onclick="setTab('stats')">📊 Stats</button>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+      ${state.showInstall && isIOS() ? `
+      <div class="install-banner">
+        <div class="install-icon">📲</div>
+        <div class="install-text">
+          <strong>Add to Home Screen</strong>
+          <span>Tap Share → "Add to Home Screen" to install like an app</span>
+        </div>
+        <button class="install-close" onclick="dismissInstall()">✕</button>
+      </div>
+      ` : ''}
+
+      ${state.tab === 'tracker' ? `
+
+        <!-- Day of week headers -->
+        <div class="dow-row">
+          ${DAYS.map(d => `<div class="dow-cell">${d}</div>`).join('')}
+        </div>
+
+        <!-- Calendar -->
+        ${weeks.map(week => `
+          <div class="cal-grid">
+            ${week.map(day => {
+              if (!day) return `<div class="cal-day empty"></div>`;
+              const pct = getDayProgress(day);
+              const isToday = day === todayD && isThisMonth;
+              let cls = 'cal-day';
+              if (isToday) cls += ' today';
+              else if (pct === 100) cls += ' done';
+              else if (pct > 0) cls += ' partial';
+              return `
+                <div class="${cls}">
+                  <div class="day-num">${day}</div>
+                  ${pct > 0 ? `<div class="day-pct">${pct}%</div>` : ''}
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `).join('')}
+
+        <!-- Habits -->
+        <div class="section-header">
+          <div class="section-title">My Habits</div>
+          <button class="add-btn" onclick="openModal()">+ Add</button>
+        </div>
+
+        ${state.habits.length === 0 ? `
+          <div class="empty">
+            <div class="empty-icon">🌱</div>
+            No habits yet.<br>Tap <strong>+ Add</strong> to start building your routine.
+          </div>
+        ` : state.habits.map(h => {
+          const { done, pct } = getHabitProgress(h.id);
+          const todayC = isChecked(h.id, todayD) && isThisMonth;
+          return `
+          <div class="habit-card">
+            <div class="habit-top">
+              <div class="habit-emoji">${h.emoji}</div>
+              <div class="habit-info">
+                <div class="habit-name">${h.name}</div>
+                <div class="habit-sub">${done} / ${dim} days · ${pct}%</div>
+              </div>
+              <button class="today-btn ${todayC?'checked':'unchecked'}" onclick="toggle(${h.id}, ${todayD})" title="Toggle today">
+                ${todayC ? '✓' : '○'}
+              </button>
+              <button class="del-btn" onclick="deleteHabit(${h.id})">✕</button>
+            </div>
+            <div class="prog-bar">
+              <div class="prog-fill ${pct===100?'green':'blue'}" style="width:${pct}%"></div>
+            </div>
+            <div class="day-pills">
+              ${Array.from({length: dim}, (_, i) => i+1).map(day => {
+                const c = isChecked(h.id, day);
+                const isTd = day === todayD && isThisMonth;
+                let cls = 'day-pill';
+                if (c) cls += ' checked';
+                else if (isTd) cls += ' today-pill';
+                else cls += ' unchecked';
+                return `<button class="${cls}" onclick="toggle(${h.id}, ${day})">${day}</button>`;
+              }).join('')}
+            </div>
+          </div>
+          `;
+        }).join('')}
+
+      ` : `
+
+        <!-- STATS TAB -->
+        <div class="stats-hero">
+          <div class="stats-label">MONTHLY OVERALL</div>
+          <div class="stats-pct">${overallPct}%</div>
+          <div class="stats-sub">${totalChecked} of ${totalPossible} check-ins done</div>
+          <div class="prog-bar">
+            <div class="prog-fill ${overallPct===100?'green':'blue'}" style="width:${overallPct}%"></div>
+          </div>
+        </div>
+
+        ${state.habits.length === 0 ? `
+          <div class="empty">
+            <div class="empty-icon">📊</div>
+            Add habits in Tracker tab to see your stats here.
+          </div>
+        ` : state.habits.map(h => {
+          const { done, total, pct } = getHabitProgress(h.id);
+          return `
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span style="font-size:22px">${h.emoji}</span>
+              <div style="flex:1;min-width:0">
+                <div class="habit-name">${h.name}</div>
+                <div class="habit-sub">${done} / ${total} days</div>
+              </div>
+              <div class="stat-pct-big ${pct===100?'green':'blue'}">${pct}%</div>
+            </div>
+            <div class="prog-bar">
+              <div class="prog-fill ${pct===100?'green':'blue'}" style="width:${pct}%"></div>
+            </div>
+            <div class="heatmap">
+              ${Array.from({length: total}, (_, i) => i+1).map(day =>
+                `<div class="heat-cell ${isChecked(h.id, day)?'on':'off'}"></div>`
+              ).join('')}
+            </div>
+          </div>
+          `;
+        }).join('')}
+
+      `}
+    </div>
+
+    <!-- ADD HABIT MODAL -->
+    ${state.showModal ? `
+    <div class="modal-overlay" onclick="closeModal()">
+      <div class="modal-sheet" onclick="event.stopPropagation()">
+        <div class="modal-title">Add New Habit</div>
+        <div class="modal-label">HABIT NAME</div>
+        <input
+          class="modal-input"
+          id="habit-input"
+          type="text"
+          placeholder="e.g. Read 20 minutes"
+          value="${escHtml(state.newName)}"
+          oninput="state.newName=this.value"
+          onkeydown="if(event.key==='Enter')addHabit()"
+          maxlength="40"
+        />
+        <div class="modal-label">CHOOSE EMOJI</div>
+        <div class="emoji-grid">
+          ${EMOJIS.map(em => `
+            <button class="emoji-opt ${state.newEmoji===em?'selected':''}" onclick="state.newEmoji='${em}';render()">
+              ${em}
+            </button>
+          `).join('')}
+        </div>
+        <button class="modal-submit" onclick="addHabit()">Add Habit</button>
+      </div>
+    </div>
+    ` : ''}
+
+    <!-- TOAST -->
+    ${state.toastMsg ? `<div class="toast">${state.toastMsg}</div>` : ''}
+  `;
+
+  // Auto-focus input when modal opens
+  if (state.showModal) {
+    setTimeout(() => {
+      const inp = document.getElementById("habit-input");
+      if (inp) inp.focus();
+    }, 100);
+  }
+}
+
+// ── ACTIONS ──
+function prevMonth() {
+  if (state.month === 0) { state.month = 11; state.year--; }
+  else state.month--;
+  render();
+}
+function nextMonth() {
+  if (state.month === 11) { state.month = 0; state.year++; }
+  else state.month++;
+  render();
+}
+function setTab(t) { state.tab = t; render(); }
+
+function openModal() { state.showModal = true; state.newName = ""; state.newEmoji = "⏰"; render(); }
+function closeModal() { state.showModal = false; render(); }
+
+function addHabit() {
+  const name = state.newName.trim();
+  if (!name) return;
+  state.habits.push({ id: Date.now(), name, emoji: state.newEmoji });
+  save();
+  closeModal();
+  showToast(`"${name}" added! 🎉`);
+}
+
+function deleteHabit(id) {
+  const h = state.habits.find(h => h.id === id);
+  if (!confirm(`Delete "${h ? h.name : 'this habit'}"?`)) return;
+  state.habits = state.habits.filter(h => h.id !== id);
+  save();
+  render();
+}
+
+function dismissInstall() { state.showInstall = false; render(); }
+
+function isIOS() {
+  return /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+}
+
+function escHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// Initial render
+render();
+</script>
+</body>
+</html>
